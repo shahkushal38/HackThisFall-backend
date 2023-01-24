@@ -9,11 +9,11 @@ load_dotenv(find_dotenv())
 from flask_cors import CORS 
 from models.test import *
 
-
 app = Flask(__name__)
 api=Api(app)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
+# database connectivity
 database = os.environ.get("database")
 client = MongoClient(database)
 try:
@@ -24,12 +24,19 @@ try:
 except Exception as err:
     print(err)
 
-
 db=client.Hackathon
 
+#API routing
+
+@app.route('/', methods=['GET', 'POST'])
+def route1():
+    try:
+        return "Success"
+    except Exception as ex:
+        print("Exception --- ", ex)
 
 @app.route('/test', methods=['GET', 'POST'])
-def route():
+def route2():
     try:
         res = function1(request)
         return res
