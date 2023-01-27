@@ -17,7 +17,7 @@ To create your virtual environment named "env" go to project directory and type 
 Activate the virtual environment, use the following command
 
 ```
-source env/bin/activate or .env/Scripts/activate
+source env/bin/activate or .env/Scripts/activate or .\env\Scripts\activate.ps1
 ```
 
 To deactivate virtualenv simply use the command
